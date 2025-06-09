@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/constants/constants.dart';
 import 'package:notes_app/widgets/custom_app_bar.dart';
+import 'package:notes_app/widgets/custom_modalbottomsheet.dart';
 import 'package:notes_app/widgets/note_widget.dart';
 
 class HomeView extends StatelessWidget {
@@ -16,7 +17,14 @@ class HomeView extends StatelessWidget {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (context) {
+              return CustomModalbottomsheet();
+            },
+          );
+        },
         shape: const CircleBorder(),
         backgroundColor: kprimaryColor,
         child: const Icon(Icons.add, color: Colors.black),
