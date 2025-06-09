@@ -16,14 +16,7 @@ class HomeView extends StatelessWidget {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showModalBottomSheet(
-            context: context,
-            builder: (context) {
-              return Container();
-            },
-          );
-        },
+        onPressed: () {},
         shape: const CircleBorder(),
         backgroundColor: kprimaryColor,
         child: const Icon(Icons.add, color: Colors.black),
