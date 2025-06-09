@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/constants/constants.dart';
 import 'package:notes_app/widgets/custom_app_bar.dart';
+import 'package:notes_app/widgets/note_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -8,9 +10,23 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(),
-      body: ListView(children: [
-          
-        ],
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+          return NoteWidget();
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (context) {
+              return Container();
+            },
+          );
+        },
+        shape: const CircleBorder(),
+        backgroundColor: kprimaryColor,
+        child: const Icon(Icons.add, color: Colors.black),
       ),
     );
   }
