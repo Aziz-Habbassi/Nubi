@@ -12,7 +12,7 @@ class CustomModalbottomsheet extends StatelessWidget {
       children: const [
         CustomTextfield(title: "Title"),
         SizedBox(height: 20),
-        CustomTextfield(title: "Content", maxlines: 5),
+        CustomTextfield(title: "Content", maxlines: 7),
         SizedBox(height: 40),
         CustomButton(),
       ],
