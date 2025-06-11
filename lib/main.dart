@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/views/edit_view.dart';
 import 'package:notes_app/views/home_view.dart';
 
 void main() {
@@ -13,7 +14,10 @@ class NewsApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
-      routes: {HomeView.id: (context) => HomeView()},
+      routes: {
+        HomeView.id: (context) => HomeView(),
+        EditView.id: (context) => EditView(),
+      },
       initialRoute: HomeView.id,
     );
   }
