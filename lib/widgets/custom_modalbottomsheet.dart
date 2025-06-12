@@ -7,15 +7,56 @@ class CustomModalbottomsheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: EdgeInsets.symmetric(vertical: 35, horizontal: 25),
-      children: const [
-        CustomTextfield(title: "Title"),
-        SizedBox(height: 20),
-        CustomTextfield(title: "Content", maxlines: 7),
-        SizedBox(height: 40),
-        CustomButton(),
-      ],
+    return AddNoteform();
+  }
+}
+
+class AddNoteform extends StatefulWidget {
+  const AddNoteform({super.key});
+
+  @override
+  State<AddNoteform> createState() => _AddNoteformState();
+}
+
+class _AddNoteformState extends State<AddNoteform> {
+  final GlobalKey<FormState> formkey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String? title, content;
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      autovalidateMode: autovalidateMode,
+      key: formkey,
+      child: ListView(
+        padding: EdgeInsets.symmetric(vertical: 35, horizontal: 25),
+        children: [
+          CustomTextfield(
+            title: "Title",
+            onsaved: (data) {
+              title = data;
+            },
+          ),
+          const SizedBox(height: 20),
+          CustomTextfield(
+            title: "Content",
+            maxlines: 7,
+            onsaved: (data) {
+              content = data;
+            },
+          ),
+          const SizedBox(height: 40),
+          CustomButton(
+            ontap: () {
+              if (formkey.currentState!.validate()) {
+                formkey.currentState!.save();
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {});
+              }
+            },
+          ),
+        ],
+      ),
     );
   }
 }
