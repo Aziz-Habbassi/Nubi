@@ -24,7 +24,13 @@ class _AddNoteFormState extends State<AddNoteForm> {
       autovalidateMode: autovalidateMode,
       key: formkey,
       child: ListView(
-        padding: EdgeInsets.symmetric(vertical: 35, horizontal: 25),
+        shrinkWrap: true,
+        padding: EdgeInsets.only(
+          top: 35,
+          right: 25,
+          left: 25,
+          bottom: MediaQuery.of(context).viewInsets.bottom + 35,
+        ),
         children: [
           CustomTextfield(
             title: "Title",
