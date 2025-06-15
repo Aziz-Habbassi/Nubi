@@ -54,7 +54,7 @@ class _EditViewState extends State<EditView> {
             const SizedBox(height: 35),
             CustomTextfield(
               title: "Content",
-              maxlines: 10,
+              minlines: 10,
               oldtext: content.text,
               controller: content,
             ),

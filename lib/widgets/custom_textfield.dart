@@ -5,13 +5,13 @@ class CustomTextfield extends StatelessWidget {
   const CustomTextfield({
     super.key,
     required this.title,
-    this.maxlines = 1,
+    this.minlines = 1,
     this.onsaved,
     this.oldtext,
     this.controller,
   });
   final String title;
-  final int maxlines;
+  final int minlines;
   final void Function(String?)? onsaved;
   final String? oldtext;
   final TextEditingController? controller;
@@ -39,7 +39,8 @@ class CustomTextfield extends StatelessWidget {
         ),
         hintText: title,
       ),
-      maxLines: maxlines,
+      minLines: minlines,
+      maxLines: null,
     );
   }
 }

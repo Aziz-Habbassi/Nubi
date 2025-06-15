@@ -41,7 +41,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(height: 20),
           CustomTextfield(
             title: "Content",
-            maxlines: 7,
+            minlines: 7,
             onsaved: (data) {
               content = data;
             },
