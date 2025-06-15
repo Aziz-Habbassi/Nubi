@@ -12,5 +12,8 @@ class ReadNoteCubit extends Cubit<ReadNoteState> {
   void fetchNotes() {
     Box<NoteModel> box = Hive.box<NoteModel>(kNotesBox);
     list = box.values.toList();
+
+    list = list!.reversed.toList();
+    emit(ReadNoteSuccess());
   }
 }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/constants/constants.dart';
-import 'package:notes_app/cubits/read_note_cubit/read_note_cubit.dart';
 import 'package:notes_app/widgets/custom_app_bar.dart';
 import 'package:notes_app/widgets/custom_modalbottomsheet.dart';
 import 'package:notes_app/widgets/notes_view_body.dart';
@@ -19,10 +17,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(),
-      body: BlocProvider(
-        create: (context) => ReadNoteCubit(),
-        child: NotesViewBody(),
-      ),
+      body: NotesViewBody(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
