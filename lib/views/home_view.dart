@@ -4,7 +4,6 @@ import 'package:notes_app/constants/constants.dart';
 import 'package:notes_app/cubits/read_note_cubit/read_note_cubit.dart';
 import 'package:notes_app/widgets/custom_app_bar.dart';
 import 'package:notes_app/widgets/custom_modalbottomsheet.dart';
-import 'package:notes_app/widgets/note_widget.dart';
 import 'package:notes_app/widgets/notes_view_body.dart';
 
 class HomeView extends StatefulWidget {

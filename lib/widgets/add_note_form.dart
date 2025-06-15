@@ -55,7 +55,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                   title: title!,
                   content: content!,
                   date: DateFormat.yMEd().format(DateTime.now()),
-                  color: ksecondaryColor.toARGB32(),
+                  color: kforthColor.toARGB32(),
                 );
                 BlocProvider.of<AddNoteCubitCubit>(context).addNote(note);
               } else {

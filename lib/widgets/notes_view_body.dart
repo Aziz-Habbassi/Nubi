@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/read_note_cubit/read_note_cubit.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/note_widget.dart';
 
 class NotesViewBody extends StatefulWidget {
@@ -21,10 +22,11 @@ class _NotesViewBodyState extends State<NotesViewBody> {
   Widget build(BuildContext context) {
     return BlocBuilder<ReadNoteCubit, ReadNoteState>(
       builder: (context, state) {
+        List<NoteModel> notes = BlocProvider.of<ReadNoteCubit>(context).list!;
         return ListView.builder(
-          itemCount: state is ReadNoteSuccess ? state.list.length : 0,
+          itemCount: notes.length,
           itemBuilder: (context, index) {
-            return NoteWidget();
+            return NoteWidget(noteModel: notes[index]);
           },
         );
       },
